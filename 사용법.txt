@@ -1,0 +1,5 @@
+
+Git config
+- git config user.name="Jon Due"
+- git config user.email=a@b.com
+
