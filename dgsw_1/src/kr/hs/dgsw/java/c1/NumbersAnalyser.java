@@ -3,7 +3,7 @@ package kr.hs.dgsw.java.c1;
 import java.util.Scanner;
 
 public class NumbersAnalyser {
-	public static final int SIZE = 3;
+	public static final int SIZE = 5;
 	
 	private int[] values;
 
@@ -27,10 +27,10 @@ public class NumbersAnalyser {
 	
 	public int getMin()
 	{
-		int min = 0;
-		for (int i = 0 ; i < SIZE ; i++)
+		int min = values[0];
+		for (int i = 1 ; i < SIZE ; i++)
 		{
-			if (i == 0 || min > values[i])
+			if (min > values[i])
 			{
 				min = values[i];
 			}
@@ -41,10 +41,10 @@ public class NumbersAnalyser {
 	
 	public int getMax()
 	{
-		int max = 0;
-		for (int i = 0 ; i < SIZE ; i++)
+		int max = values[0];
+		for (int i = 1 ; i < SIZE ; i++)
 		{
-			if (i == 0 || max < values[i])
+			if (max < values[i])
 			{
 				max = values[i];
 			}
@@ -55,6 +55,7 @@ public class NumbersAnalyser {
 	
 	public double getAverage() {
 		int sum = 0;
+		
 		for (int value : values)
 		{
 			sum += value;
