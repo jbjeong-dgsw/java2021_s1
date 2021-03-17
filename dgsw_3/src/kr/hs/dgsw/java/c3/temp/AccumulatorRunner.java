@@ -1,6 +1,8 @@
-package kr.hs.dgsw.java.c3;
+package kr.hs.dgsw.java.c3.temp;
 
 import java.util.Scanner;
+
+import kr.hs.dgsw.java.c3.Accumulator;
 
 public class AccumulatorRunner {
 	public static void main(String[] args) {

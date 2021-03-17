@@ -1,7 +1,7 @@
 package kr.hs.dgsw.java.c3;
 
 public class Accumulator {
-	int sum;
+	protected int sum;
 	
 	public void add(int value) {
 		sum += value;
