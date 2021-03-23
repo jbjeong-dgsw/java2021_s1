@@ -27,6 +27,14 @@ public class IntegerStudy {
 
 		byteValue = (byte)128;
 		System.out.println(byteValue);
+		
+		shortValue = 31;
+		intValue = 0x1F;
+		byteValue = 0b00011111;
+		longValue = 037;
+		
+		System.out.println(String.format("%X %x", 1459, 1459));
+		
 	}
 	
 }
