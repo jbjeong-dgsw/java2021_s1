@@ -12,6 +12,9 @@ public class ByteStudy {
 		// 10진수를 16진수로 바꾸어 출력한다.
 		String hex = convertToHexString(byteValue);
 		System.out.println(byteValue + " -> 0x" + hex);
+		System.out.println(
+				String.format("%d -> 0x%X", byteValue, 
+						byteValue));
 		
 		scanner.close();
 	}
