@@ -1,5 +1,5 @@
 package kr.hs.dgsw.java.c1.inherit;
 
-public class Reptile {
+public class Reptile extends Animal {
 
 }

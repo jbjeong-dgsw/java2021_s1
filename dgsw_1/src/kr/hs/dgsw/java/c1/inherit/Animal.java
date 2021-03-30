@@ -39,5 +39,10 @@ public class Animal {
 		hippo.setFood("Ǯ");
 		
 		lion.eat();
+		
+		Animal snake = new Reptile();
+		Animal parrot = new Bird();
+		
+		
 	}
 }
