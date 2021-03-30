@@ -4,12 +4,22 @@ public class Adder {
 	protected int operand1;
 	protected int operand2;
 
+	public void execute() {
+		// TODO
+	}
+	
 	public int calculate() {
 		return operand1 + operand2;
 	}
 
+	public String getOperator() {
+		return "+";
+	}
+	
 	public void print() {
-		String str = String.format("%d + %d = %d", operand1, operand2, calculate());
+		String str = String.format("%d %s %d = %d", 
+				operand1, getOperator(), operand2, 
+				calculate());
 		System.out.println(str);
 	}
 
@@ -31,9 +41,6 @@ public class Adder {
 
 	public static void main(String[] args) {
 		Adder adder = new Adder();
-		adder.setOperand1(1542);
-		adder.setOperand2(3874);
-		
-		adder.print();
+		adder.execute();
 	}
 }
