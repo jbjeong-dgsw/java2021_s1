@@ -1,11 +1,14 @@
 package kr.hs.dgsw.java.c1.inherit;
 
 public class Adder {
-	private int operand1;
-	private int operand2;
+	protected int operand1;
+	protected int operand2;
 
-	public Adder(int operand1, int operand2) {
+	public void setOperand1(int operand1) {
 		this.operand1 = operand1;
+	}
+	
+	public void setOperand2(int operand2) {
 		this.operand2 = operand2;
 	}
 	
@@ -13,15 +16,22 @@ public class Adder {
 		return operand1 + operand2;
 	}
 	
+	public String getOperator() {
+		return "+";
+	}
+	
 	public void print()
 	{
-		String str = String.format("%d + %d = %d", 
-				operand1, operand2, calculate());
+		String str = String.format("%d %s %d = %d", 
+				operand1, getOperator(), operand2, 
+				calculate());
 		System.out.println(str);
 	}
 	
 	public static void main(String[] args) {
-		Adder adder = new Adder(3421, 5849);
+		Adder adder = new Adder();
+		adder.setOperand1(1239);
+		adder.setOperand2(5321);
 		adder.print();
 	}
 }
