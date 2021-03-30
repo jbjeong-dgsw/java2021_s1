@@ -15,16 +15,15 @@ public class Hex {
 
 	private static String convertToHexString(int value) {
 		String result = "";
-		
-		while (value > 0)
-		{
+
+		while (value > 0) {
 			int remainder = value % 16;
 			String char1 = convertToHexChar(remainder);
 			result = char1 + result;
-			
+
 			value /= 16;
 		}
-		
+
 		return result;
 	}
 
@@ -52,4 +51,5 @@ public class Hex {
 			return value + "";
 		}
 	}
+
 }
