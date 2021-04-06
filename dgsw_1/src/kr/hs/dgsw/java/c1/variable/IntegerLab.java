@@ -4,8 +4,8 @@ public class IntegerLab {
 
 	public static void main(String[] args) {
 		
-		byte byteValue = 128;
-		int intValue = 12345678901234L;
+		//byte byteValue = 128;
+		//int intValue = 12345678901234L;
 		long longValue = 12345678901234L;
 		
 		double doubleValue = 1.23;

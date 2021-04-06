@@ -24,9 +24,9 @@ public class VariableStudy {
 		VariableStudy study1 = new VariableStudy();
 		VariableStudy study2 = new VariableStudy();
 
-		VariableStudy.age = 12;
-		VariableStudy.age = 18;
+		//VariableStudy.age = 12;
+		//VariableStudy.age = 18;
 
-		System.out.println(VariableStudy.age);
+		//System.out.println(VariableStudy.age);
 	}
 }
