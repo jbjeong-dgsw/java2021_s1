@@ -14,6 +14,12 @@ public class Circle extends Polygon {
 		return "원";
 	}
 
+	@Override
+	protected void input() {
+		System.out.println("반지름의 길이를 입력하세요.");
+		setRadius(scanner.nextDouble());
+	}
+
 	public double getRadius() {
 		return radius;
 	}
@@ -25,8 +31,7 @@ public class Circle extends Polygon {
 	public static void main(String[] args) {
 		Circle circle = new Circle();
 
-		circle.setRadius(20);
-
+		circle.input();
 		circle.printSize();
 	}
 

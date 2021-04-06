@@ -1,5 +1,7 @@
 package kr.hs.dgsw.java.c3.tr1;
 
+import java.util.Scanner;
+
 public class Triangle extends Polygon {
 
 	private double height;
@@ -13,6 +15,15 @@ public class Triangle extends Polygon {
 	@Override
 	public String getName() {
 		return "삼각형";
+	}
+	
+	@Override
+	protected void input() {
+		System.out.println("밑변의 길이를 입력하세요.");
+		setBottom(scanner.nextDouble());
+		
+		System.out.println("높이를 입력하세요.");
+		setHeight(scanner.nextDouble());
 	}
 	
 	public double getHeight() {
@@ -32,10 +43,10 @@ public class Triangle extends Polygon {
 	}
 
 	public static void main(String[] args) {
+		
 		Triangle triangle = new Triangle();
 
-		triangle.setHeight(25);
-		triangle.setBottom(12);
+		triangle.input();
 		
 		triangle.printSize();
 	}
