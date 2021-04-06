@@ -1,36 +1,33 @@
-package kr.hs.dgsw.java.c1.tr1;
+package kr.hs.dgsw.java.c3.tr1;
 
 public class Circle extends Polygon {
 
 	private double radius;
 
 	@Override
-	public String getName() {
-		return "원";
-	}
-	
-	@Override
-	public double calculateArea() {
-		return Math.PI * Math.pow(radius, 2);
+	public double getSize() {
+		return Math.PI * radius * radius;
 	}
 
 	@Override
-	public void input() {
-		System.out.println("반지름을 입력하세요.");
-		setRadius(scanner.nextDouble());
+	public String getName() {
+		return "원";
 	}
 
 	public double getRadius() {
 		return radius;
 	}
-	
+
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}
 
 	public static void main(String[] args) {
 		Circle circle = new Circle();
-		circle.execute();
+
+		circle.setRadius(20);
+
+		circle.printSize();
 	}
 
 }
