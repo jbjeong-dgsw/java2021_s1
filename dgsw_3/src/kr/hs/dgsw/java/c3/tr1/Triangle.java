@@ -1,7 +1,5 @@
 package kr.hs.dgsw.java.c3.tr1;
 
-import java.util.Scanner;
-
 public class Triangle extends Polygon {
 
 	private double height;
