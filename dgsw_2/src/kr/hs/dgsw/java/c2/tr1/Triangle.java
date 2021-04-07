@@ -15,6 +15,15 @@ public class Triangle extends Polygon {
 		return "삼각형";
 	}
 	
+	@Override
+	protected void input() {
+		System.out.println("밑변의 길이를 입력하세요.");
+		setBottom(scanner.nextDouble());
+		
+		System.out.println("높이를 입력하세요.");
+		setHeight(scanner.nextDouble());
+	}
+	
 	public double getBottom() {
 		return bottom;
 	}
@@ -34,10 +43,10 @@ public class Triangle extends Polygon {
 	public static void main(String[] args) {
 		Triangle triangle = new Triangle();
 
-		triangle.setBottom(8);
-		triangle.setHeight(6);
-		
+		triangle.input();
 		triangle.printArea();
+		
+		triangle.closeScanner();
 	}
 
 }
