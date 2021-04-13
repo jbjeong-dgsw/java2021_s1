@@ -1,19 +1,16 @@
 package kr.hs.dgsw.java.c3.array;
 
-public class BubbleSort extends Sort {
+import java.util.Arrays;
+
+public class BestSort extends Sort {
+
 	@Override
 	public void sort() {
-		for (int i = 0; i < array.length; i++) {
-			for (int j = i + 1; j < array.length; j++) {
-				if (array[i] > array[j]) {
-					swap(i, j);
-				}
-			}
-		}
+		Arrays.sort(array);
 	}
 	
 	public static void main(String[] args) {
-		Sort sort = new BubbleSort();
+		Sort sort = new BestSort();
 		sort.fillValues();
 
 		System.out.println("Á¤·Ä Àü");
