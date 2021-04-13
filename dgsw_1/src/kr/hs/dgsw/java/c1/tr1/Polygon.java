@@ -2,7 +2,7 @@ package kr.hs.dgsw.java.c1.tr1;
 
 import java.util.Scanner;
 
-public class Polygon {
+public abstract class Polygon {
 	protected Scanner scanner;
 	
 	public Polygon() {
@@ -18,17 +18,11 @@ public class Polygon {
 		scanner.close();
 	}
 	
-	public void input() {
-		// do nothing
-	}
+	public abstract void input();
 	
-	public String getName() {
-		return "다각형";
-	}
+	public abstract String getName();
 	
-	public double calculateArea() {
-		return 0.0;
-	}
+	public abstract double calculateArea();
 	
 	public void printArea() {
 		System.out.println(getName() + "의 면적 : " + calculateArea());
