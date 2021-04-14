@@ -1,25 +1,28 @@
 package kr.hs.dgsw.java.c2.array;
 
-public class BubbleSort extends Sort {
+public class InsertionSort extends Sort {
 	@Override
 	public void sort() {
-		for (int i = 0 ; i < array.length ; i++) {
-			for (int j = i + 1 ; j < array.length ; j++) {
-				if (array[i] > array[j]) {
-					swap(i, j);
+		int j;
+		
+		for (int i = 1 ; i < array.length ; i++) {
+			int key = array[i];
+			
+			for (j = i - 1 ; j >= 0 ; j--) {
+				if (key < array[j]) {
+					array[j + 1] = array[j];
+				}
+				else {
+					break;
 				}
 			}
+			
+			array[j + 1] = key;
 		}
 	}
 	
-	protected void swap(int index1, int index2) {
-		int temp = array[index1];
-		array[index1] = array[index2];
-		array[index2] = temp;
-	}
-	
 	public static void main(String[] args) {
-		Sort sort = new BubbleSort();
+		Sort sort = new InsertionSort();
 		
 		sort.fillValues();
 		

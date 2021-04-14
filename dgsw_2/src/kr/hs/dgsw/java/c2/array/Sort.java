@@ -4,7 +4,7 @@ import java.util.Random;
 
 public abstract class Sort {
 
-	private static final int SIZE = 100;
+	private static final int SIZE = 100000;
 	
 	protected int[] array = new int[SIZE];
 	

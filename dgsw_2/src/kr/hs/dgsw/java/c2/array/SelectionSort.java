@@ -1,15 +1,27 @@
 package kr.hs.dgsw.java.c2.array;
 
-public class BubbleSort extends Sort {
+public class SelectionSort extends Sort {
 	@Override
 	public void sort() {
 		for (int i = 0 ; i < array.length ; i++) {
-			for (int j = i + 1 ; j < array.length ; j++) {
-				if (array[i] > array[j]) {
-					swap(i, j);
-				}
+			int minIndex = findMinimumIndex(i);
+			
+			if (i != minIndex) {
+				swap(i, minIndex);
 			}
 		}
+	}
+	
+	private int findMinimumIndex(int index) {
+		int result = index;
+		
+		for (int i = index + 1 ; i < array.length ; i++) {
+			if (array[result] > array[i]) {
+				result = i;
+			}
+		}
+		
+		return result;
 	}
 	
 	protected void swap(int index1, int index2) {
@@ -19,7 +31,7 @@ public class BubbleSort extends Sort {
 	}
 	
 	public static void main(String[] args) {
-		Sort sort = new BubbleSort();
+		Sort sort = new SelectionSort();
 		
 		sort.fillValues();
 		
