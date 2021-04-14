@@ -23,7 +23,7 @@ public class Queue {
 			throw new ArrayIndexOutOfBoundsException();
 		}
 		
-		String value = array[tail];
+		String value = array[tail % SIZE];
 		tail++;
 		
 		return value;
