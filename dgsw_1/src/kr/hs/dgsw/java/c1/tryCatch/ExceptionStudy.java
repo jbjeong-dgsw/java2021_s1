@@ -30,7 +30,12 @@ public class ExceptionStudy {
 		
 		methodB();
 		
-		methodC();
+		try {
+			methodC();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		
 		methodD();
 	}

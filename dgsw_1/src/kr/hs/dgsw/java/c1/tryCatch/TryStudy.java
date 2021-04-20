@@ -33,6 +33,8 @@ public class TryStudy {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			return false;
 		} finally {
 			try {
 				reader.close();
@@ -44,7 +46,7 @@ public class TryStudy {
 		
 	}
 	
-	public static void method3() {
+	public static void method3() throws Exception {
 		File file = new File("C://abc.txt");
 		FileReader fileReader = 
 				new FileReader(file);
