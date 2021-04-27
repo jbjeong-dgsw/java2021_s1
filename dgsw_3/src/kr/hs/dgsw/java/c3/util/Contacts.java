@@ -1,5 +1,6 @@
 package kr.hs.dgsw.java.c3.util;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,13 @@ public class Contacts {
 	}
 	
 	public NameCard readByPhone(String phone) {
+		Collection<NameCard> cards = map.values();
+		for (NameCard card : cards) {
+			if (card.getPhone().equals(phone)) {
+				return card;
+			}
+		}
+		
 		return null;
 	}
 	
