@@ -19,7 +19,7 @@ public class Writer {
 			byte[] bytes = str.getBytes();
 
 			/*
-			for (byte byte1 : bytes) {
+//			for (byte byte1 : bytes) {
 				os.write(byte1);
 			}
 			*/
