@@ -24,18 +24,18 @@ public class Commander {
 			// 사용자 입력을 받는다.
 			try {
 				command = inputCommand();
+				
+				// exit 명령이라면 loop을 벗어난다.
+				if (command.isExit()) {
+					break;
+				}
+				
+				// 명령을 수행한다.
+				currentDirectory = command.execute();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 				continue;
 			}
-			
-			// exit 명령이라면 loop을 벗어난다.
-			if (command.isExit()) {
-				break;
-			}
-			
-			// 명령을 수행한다.
-			command.execute();
 		}
 		
 		scanner.close();

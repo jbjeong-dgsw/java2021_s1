@@ -8,10 +8,6 @@ public class CommandExit extends Command {
 		super(currentDirectory, tokens);
 	}
 	
-	@Override
-	public void execute() {
-	}
-
 	public boolean isExit() {
 		return true;
 	};

@@ -22,8 +22,8 @@ public abstract class Command {
 		analizeLine();
 	}
 
-	public void execute() {
-		
+	public File execute() {
+		return currentDirectory;
 	}
 	
 	public boolean isExit() {
@@ -45,6 +45,25 @@ public abstract class Command {
 		}
 	}
 	
+	protected File getDirectory(String dirName) {
+		File dir = null;
+		
+		if (dirName.startsWith("/")) {
+			dir = new File(dirName);
+		}
+		else if (dirName.equals("..")) {
+			dir = currentDirectory.getParentFile();
+		} 
+		else if (dirName.equals(".")) {
+			dir = currentDirectory;
+		}
+		else {
+			dir = new File(currentDirectory, dirName);
+		}
+		
+		return dir;
+	}
+	
 	public static Command build(File currentDirectory, String line) {
 		Command command = null;
 		String[] tokens = line.split(" ");
@@ -54,6 +73,9 @@ public abstract class Command {
 		}
 		else if ("ls".equals(tokens[0])) {
 			command = new CommandLs(currentDirectory, tokens);
+		}
+		else if ("cd".equals(tokens[0])) {
+			command = new CommandCd(currentDirectory, tokens);
 		}
 		else {
 			throw new RuntimeException("잘못된 명령어입니다.");

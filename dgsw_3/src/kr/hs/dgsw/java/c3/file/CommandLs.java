@@ -9,24 +9,12 @@ public class CommandLs extends Command {
 	}
 	
 	@Override
-	public void execute() {
+	public File execute() {
 		File dir = null;
 		
 		if (args.size() > 0) {
 			String dirName = args.get(0);
-			
-			if (dirName.startsWith("/")) {
-				dir = new File(dirName);
-			}
-			else if (dirName.equals("..")) {
-				dir = currentDirectory.getParentFile();
-			} 
-			else if (dirName.equals(".")) {
-				dir = currentDirectory;
-			}
-			else {
-				dir = new File(currentDirectory, dirName);
-			}
+			dir = getDirectory(dirName);
 		}
 		else {
 			dir = currentDirectory;
@@ -41,6 +29,8 @@ public class CommandLs extends Command {
 		for (File file : files) {
 			showLine(file);
 		}
+		
+		return currentDirectory;
 	}
 	
 	public void showLine(File file) {
