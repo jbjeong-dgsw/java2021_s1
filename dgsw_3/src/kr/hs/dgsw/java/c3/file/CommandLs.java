@@ -32,6 +32,10 @@ public class CommandLs extends Command {
 			dir = currentDirectory;
 		}
 		
+		if (!dir.isDirectory() && !dir.exists()) {
+			throw new RuntimeException("존재하지 않는 디렉토리입니다.");
+		}
+		
 		File[] files = dir.listFiles();
 		
 		for (File file : files) {
