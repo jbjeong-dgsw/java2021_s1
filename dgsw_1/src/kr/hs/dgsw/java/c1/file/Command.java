@@ -61,10 +61,14 @@ public abstract class Command {
 		File subDir;
 		if (dirName.startsWith("/")) {
 			subDir = new File(dirName);
+		} else if (".".equals(dirName)) {
+			subDir = dir;
+		}else if ("..".equals(dirName)) {
+			subDir = dir.getParentFile();
 		} else {
 			subDir = new File(dir, dirName);
 		}
-		
+
 		if (!subDir.isDirectory() || !subDir.exists()) {
 			throw new RuntimeException("존재하지 않는 디렉토리입니다.");
 		}
@@ -81,6 +85,13 @@ public abstract class Command {
 		else if ("cd".equals(tokens[0])) {
 			return new CommandCd(dir, tokens);
 		}
+		else if ("touch".equals(tokens[0])) {
+			return new CommandMakeFile(dir, tokens);
+		} 
+		else if ("rm".equals(tokens[0])) {
+			return new CommandRemoveFile(dir, tokens);
+		}
+		
 		else if ("exit".equals(tokens[0])) {
 			return new CommandExit(dir, tokens);
 		}
