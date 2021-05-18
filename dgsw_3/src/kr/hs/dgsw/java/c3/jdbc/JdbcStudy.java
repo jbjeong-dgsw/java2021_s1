@@ -68,6 +68,29 @@ public class JdbcStudy {
 		connection.close();
 	}
 
+	public void update(NameCard nameCard) 
+			throws Exception {
+		Connection connection = getConnection();
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE phone_book SET ");
+		sql.append("  name = ?, ");
+		sql.append("  phone_number = ?, ");
+		sql.append("  address = ? ");
+		sql.append(" WHERE id = ? ");
+		
+		PreparedStatement pstmt = 
+				connection.prepareStatement(sql.toString());
+		pstmt.setString(1, nameCard.getName());
+		pstmt.setString(2, nameCard.getPhoneNumber());
+		pstmt.setString(3, nameCard.getAddress());
+		pstmt.setInt(4, nameCard.getId());
+		
+		pstmt.executeUpdate();
+		pstmt.close();
+		
+		connection.close();
+	}
 	public NameCard read(int id) throws Exception {
 
 		// 데이터베이스에 접속한다.
