@@ -3,6 +3,7 @@ package kr.hs.dgsw.java.c1.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.Scanner;
 
 public class JdbcStudy2 {
 
@@ -39,6 +40,24 @@ public class JdbcStudy2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("이름 : ");
+		String name = scanner.next();
+		
+		System.out.print("전화번호 : ");
+		String phoneNumber = scanner.next();
+
+		System.out.print("주소 : ");
+		String address = scanner.next();
+
+		scanner.close();
+		
+		JdbcStudy2 study = new JdbcStudy2();
+		study.register(name, phoneNumber, address);
 		
 	}
 	
