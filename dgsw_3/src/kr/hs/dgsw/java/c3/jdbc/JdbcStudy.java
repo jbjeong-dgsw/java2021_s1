@@ -45,6 +45,28 @@ public class JdbcStudy {
 		connection.close();
 
 	}
+	
+	public void register(NameCard nameCard) 
+			throws Exception {
+		Connection connection = getConnection();
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO phone_book ");
+		sql.append("  (name, phone_number, address) ");
+		sql.append("VALUES ");
+		sql.append("  (?, ?, ?) ");
+		
+		PreparedStatement pstmt = 
+				connection.prepareStatement(sql.toString());
+		pstmt.setString(1, nameCard.getName());
+		pstmt.setString(2, nameCard.getPhoneNumber());
+		pstmt.setString(3, nameCard.getAddress());
+		
+		pstmt.executeUpdate();
+		pstmt.close();
+		
+		connection.close();
+	}
 
 	public NameCard read(int id) throws Exception {
 
@@ -88,7 +110,14 @@ public class JdbcStudy {
 		try {
 
 			JdbcStudy study = new JdbcStudy();
-			study.readList();
+			//study.readList();
+			
+			NameCard card = new NameCard();
+			card.setName("난정말");
+			card.setPhoneNumber("010-9876-9876");
+			card.setAddress("대구시 서구");
+			
+			study.register(card);
 
 		} catch (Exception e) {
 			e.printStackTrace();
