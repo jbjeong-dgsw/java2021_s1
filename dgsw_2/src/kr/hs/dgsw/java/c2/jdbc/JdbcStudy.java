@@ -116,6 +116,8 @@ public class JdbcStudy {
 		return list;
 	}
 
+	
+	
 	public static void main(String[] args) {
 		try {
 			JdbcStudy study = new JdbcStudy();
