@@ -9,10 +9,29 @@ import java.util.List;
 
 public class JdbcStudy {
 
+	private Connection getConnection() throws Exception {
+		Class.forName("org.mariadb.jdbc.Driver");
+		return DriverManager.getConnection("jdbc:mariadb://211.53.209.159/dgsw_java", "dgsw_student", "1234");
+	}
+	
+	private NameCard makeNameCard(ResultSet rs) throws Exception {
+		int id1 = rs.getInt("id");
+		String name = rs.getString("name");
+		String phoneNumber = rs.getString("phone_number");
+		String address = rs.getString("address");
+
+		NameCard nameCard = new NameCard();
+		nameCard.setId(id1);
+		nameCard.setName(name);
+		nameCard.setPhoneNumber(phoneNumber);
+		nameCard.setAddress(address);
+		
+		return nameCard;
+	}
+	
 	public NameCard get(int id) throws Exception {
 		// 데이터베이스에 접속한다.
-		Class.forName("org.mariadb.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mariadb://211.53.209.159/dgsw_java", "dgsw_student", "1234");
+		Connection con = getConnection();
 
 		// 데이터베이스에서 데이터를 읽어온다.
 		String sql = "SELECT * FROM phone_book WHERE id = ? ";
@@ -24,16 +43,7 @@ public class JdbcStudy {
 		// 읽어온 데이터를 NameCard object로 변환한다.
 		NameCard nameCard = null;
 		if (rs.next()) {
-			int id1 = rs.getInt("id");
-			String name = rs.getString("name");
-			String phoneNumber = rs.getString("phone_number");
-			String address = rs.getString("address");
-
-			nameCard = new NameCard();
-			nameCard.setId(id1);
-			nameCard.setName(name);
-			nameCard.setPhoneNumber(phoneNumber);
-			nameCard.setAddress(address);
+			nameCard = makeNameCard(rs);
 		}
 		rs.close();
 		pstmt.close();
@@ -47,8 +57,7 @@ public class JdbcStudy {
 	public NameCard getByName(String name) throws Exception {
 
 		// 데이터베이스에 접속한다.
-		Class.forName("org.mariadb.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mariadb://211.53.209.159/dgsw_java", "dgsw_student", "1234");
+		Connection con = getConnection();
 
 		// 데이터베이스에서 데이터를 읽어온다.
 		String sql = "SELECT * FROM phone_book WHERE name = ? ";
@@ -60,16 +69,7 @@ public class JdbcStudy {
 		// 읽어온 데이터를 NameCard object로 변환한다.
 		NameCard nameCard = null;
 		if (rs.next()) {
-			int id1 = rs.getInt("id");
-			String name1 = rs.getString("name");
-			String phoneNumber = rs.getString("phone_number");
-			String address = rs.getString("address");
-
-			nameCard = new NameCard();
-			nameCard.setId(id1);
-			nameCard.setName(name1);
-			nameCard.setPhoneNumber(phoneNumber);
-			nameCard.setAddress(address);
+			nameCard = makeNameCard(rs);
 		}
 		rs.close();
 		pstmt.close();
@@ -82,8 +82,7 @@ public class JdbcStudy {
 
 	public List<NameCard> getList() throws Exception {
 		// 데이터베이스에 접속한다.
-		Class.forName("org.mariadb.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mariadb://211.53.209.159/dgsw_java", "dgsw_student", "1234");
+		Connection con = getConnection();
 
 		// 데이터베이스에서 데이터를 읽어온다.
 		String sql = "SELECT * FROM phone_book ORDER BY id ";
@@ -94,16 +93,7 @@ public class JdbcStudy {
 		List<NameCard> list = new ArrayList<NameCard>();
 		NameCard nameCard = null;
 		while (rs.next()) {
-			int id1 = rs.getInt("id");
-			String name = rs.getString("name");
-			String phoneNumber = rs.getString("phone_number");
-			String address = rs.getString("address");
-
-			nameCard = new NameCard();
-			nameCard.setId(id1);
-			nameCard.setName(name);
-			nameCard.setPhoneNumber(phoneNumber);
-			nameCard.setAddress(address);
+			nameCard = makeNameCard(rs);
 
 			list.add(nameCard);
 		}
