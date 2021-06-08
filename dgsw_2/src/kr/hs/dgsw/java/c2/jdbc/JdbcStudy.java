@@ -106,7 +106,29 @@ public class JdbcStudy {
 		return list;
 	}
 
-	
+	public void insert(String name, String phoneNumber, 
+			String address) throws Exception {
+		// 데이터베이스에 접속한다.
+		Connection con = getConnection();
+		
+		// 데이터베이스에 자료를 추가한다.
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO phone_book ");
+		sql.append("  (name, phone_number, address) ");
+		sql.append("VALUES ");
+		sql.append("  (?, ?, ?) ");
+		
+		PreparedStatement pstmt = con.prepareStatement(sql.toString());
+		pstmt.setString(1, name);
+		pstmt.setString(2, phoneNumber);
+		pstmt.setString(3, address);
+		
+		pstmt.executeUpdate();
+		pstmt.close();
+		
+		// 데이터베이스와 접속을 종료한다
+		con.close();
+	}
 	
 	public static void main(String[] args) {
 		try {
@@ -117,6 +139,9 @@ public class JdbcStudy {
 				System.out.println(
 						card.getId() + "  " + card.getName() + "  " + card.getPhoneNumber() + "  " + card.getAddress());
 			}
+			
+			study.insert("이름", "02-1234-5678", "서울시 도봉구 쌍문동");
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

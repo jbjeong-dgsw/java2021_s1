@@ -2,8 +2,6 @@ package kr.hs.dgsw.java.c3.phoneBook;
 
 import java.util.List;
 
-import kr.hs.dgsw.java.c2.phoneBook.NameCard;
-
 public interface PhoneBook {
 
 	/**

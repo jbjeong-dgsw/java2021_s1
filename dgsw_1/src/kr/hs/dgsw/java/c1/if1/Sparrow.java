@@ -1,33 +1,15 @@
 package kr.hs.dgsw.java.c1.if1;
 
-public class Sparrow extends Animal implements Sound, Fly {
+public class Sparrow implements Bird {
 
-	public Sparrow() {
-		setName("Âü»õ");
-		setFood("¾¾¾Ñ");
-	}
-	
 	@Override
-	public void live() {
-		super.live();
-		fly();
-		makeSound();
+	public void eat() {
+		System.out.println("Âü»õ°¡ Á¼½ÒÀ» ¸Ô½À´Ï´Ù.");
 	}
-	
 	
 	@Override
 	public void fly() {
-		System.out.println("ÇÏ´ÃÀ» ³¯¾Æ ´Ù´Õ´Ï´Ù.");
-		
+		System.out.println("Âü»õ°¡ ³¯¾Æ°©´Ï´Ù.");
 	}
-
-	@Override
-	public void makeSound() {
-		System.out.println("Â±Â±");
-	}
-
-	public static void main(String[] args) {
-		Sparrow pigeon = new Sparrow();
-		pigeon.live();
-	}
+	
 }

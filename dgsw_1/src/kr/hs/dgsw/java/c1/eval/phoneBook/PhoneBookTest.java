@@ -6,7 +6,7 @@ public class PhoneBookTest {
 
 	public static void main(String[] args) {
 		
-		PhoneBook phoneBook = new FilePhoneBook();
+		PhoneBook phoneBook = new DbPhoneBook();
 		NameCard nameCard = null;
 		
 		// 네 개의 데이터를 추가하세요.
